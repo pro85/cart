@@ -291,6 +291,10 @@ class Cart
         $this->store->setIdentifier($identifier);
     }
 
+    public function getIdentifier()
+    {
+        return $this->id;
+    }
     /**
      * Create a unique item identifier
      * 
