@@ -95,7 +95,7 @@ class Cart
         if ($this->has($itemIdentifier)) {
             $item['quantity'] = $this->item($itemIdentifier)->quantity + $item['quantity'];
             $this->update($itemIdentifier, $item);
-
+            $this->store->insertUpdate($this->item($itemIdentifier));
             return $itemIdentifier;
         }
 
@@ -122,6 +122,7 @@ class Cart
 
             if ($item->identifier == $itemIdentifier) {
                 $item->update($key, $value);
+                $this->store->insertUpdate($this->item($itemIdentifier));
                 break;
             }
 
